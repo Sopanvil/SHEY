@@ -53,8 +53,8 @@ export default {};
         width: 100%;
         max-width: 1080px;
         display: flex;
-        justify-content: space-between;
         align-items: flex-start;
+        gap: 140px; 
         .hire-text {
             max-width: 307px;
             .title {
@@ -73,7 +73,7 @@ export default {};
         }
         .hire-inputs {
             width: 100%;
-            max-width: 504px;
+            max-width: 540px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
