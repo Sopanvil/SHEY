@@ -52,7 +52,7 @@ export default {};
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 48px 0;
+        padding: 37px 0;
         .header__title-link {
             font-weight: 700;
             font-size: 40px;
