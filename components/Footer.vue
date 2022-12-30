@@ -53,7 +53,7 @@ export default {};
 .footer {
     display: flex;
     justify-content: center;
-    padding: 126px 0;
+    padding: 160px 0;
     .container {
         width: 100%;
         max-width: 1080px;
@@ -61,16 +61,17 @@ export default {};
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 48px 0;
         .footer-table {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
+            flex-wrap: wrap;
             margin-bottom: 60px;
+            gap: 20px;
             .footer-list {
                 .title {
-                    margin-bottom: 32px;
+                    margin-bottom: 16px;
                     font-weight: 700;
                     font-size: 32px;
                     line-height: 39px;
@@ -106,9 +107,48 @@ export default {};
             .footer-text__title {
                 color: #7b7b7b;
                 a {
-                color: #7b7b7b;
-
+                    color: #7b7b7b;
                 }
+            }
+        }
+    }
+}
+
+@media (max-width: 860px) {
+    .footer {
+        padding-bottom: 60px;
+        .container {
+            .footer-table {
+                .footer-list {
+                    .title {
+                        font-size: 18px;
+                        line-height: 22px;
+                    }
+                    .table-content {
+                        gap: 12px;
+                        .footer__text {
+                            font-size: 14px;
+                            line-height: 16px;
+                        }
+                        .footer__link {
+                            font-size: 14px;
+                            line-height: 16px;
+                        }
+                    }
+                }
+            }
+            .footer-text {
+                font-size: 14px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+@media (max-width: 370px) {
+    .footer {
+        .container {
+            .footer-table {
+                justify-content: flex-start;
             }
         }
     }

@@ -48,9 +48,27 @@ input[type='number']::-webkit-inner-spin-button {
 }
 .input-standart {
     width: 100%;
-    max-width: 504px;
-    padding: 18px;
+    padding: 16px;
     font-size: 20px;
+    box-sizing: border-box;
+    color: #000000;
+    background: #ffffff;
+    border: 1px solid #d0d2d6;
+    border-radius: 6px;
+    transition: 0.15s;
+    &:hover {
+        background: #f5f5f5;
+    }
+    &:focus {
+        background: #ffffff;
+    }
+}
+.input-standart__textarea {
+    width: 100%;
+    height: 181px;
+    padding: 16px;
+    font-size: 20px;
+    box-sizing: border-box;
     color: #000000;
     background: #ffffff;
     border: 1px solid #d0d2d6;
@@ -94,7 +112,20 @@ textarea {
     transition: 0.15s;
     cursor: pointer;
     &:hover {
-        background: #3471ff;
+        background: #296AFF;
+    }
+}
+.check-button {
+    padding: 21px 41px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #3c77ff;
+    background: #ffffff;
+    border-radius: 16px;
+    transition: 0.15s;
+    cursor: pointer;
+    &:hover {
+        background: #E9E9E9;
     }
 }
 .button-disabled {

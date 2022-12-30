@@ -32,10 +32,5 @@ export default {
     // Build Configuration: https://go.nuxtjs.dev/config-build
 
     builds: [
-        {
-            src: 'nuxt.config.js',
-            use: '@nuxtjs/vercel-builder',
-            config: {},
-        },
     ],
 };
