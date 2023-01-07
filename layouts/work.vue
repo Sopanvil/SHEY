@@ -57,4 +57,15 @@ export default {};
         top: 40px;
     }
 }
+@media (max-width: 700px) {
+    .ellipse-1 {
+        display: none;
+    }
+    .ellipse-2 {
+        display: none;
+    }
+    .ellipse-3 {
+        display: none;
+    }
+}
 </style>

@@ -4,7 +4,8 @@ p,
 div,
 body,
 input,
-textarea {
+textarea,
+button {
     margin: 0;
     padding: 0;
     font-family: 'Gilroy', sans-serif;
@@ -112,7 +113,7 @@ textarea {
     transition: 0.15s;
     cursor: pointer;
     &:hover {
-        background: #296AFF;
+        background: #296aff;
     }
 }
 .check-button {
@@ -125,7 +126,7 @@ textarea {
     transition: 0.15s;
     cursor: pointer;
     &:hover {
-        background: #E9E9E9;
+        background: #e9e9e9;
     }
 }
 .button-disabled {
@@ -158,4 +159,13 @@ textarea {
 }
 .out-in-anim-move {
     transition: all 0.3s;
+}
+
+@media (max-width: 700px) {
+    .check-button {
+        padding: 11px 0;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+    }
 }

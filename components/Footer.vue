@@ -118,7 +118,7 @@ export default {
 
 @media (max-width: 860px) {
     .footer {
-        padding-bottom: 60px;
+        padding: 0 0 60px 0;
         .container {
             .footer-table {
                 .footer-list {

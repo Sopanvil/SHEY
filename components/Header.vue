@@ -165,7 +165,7 @@ export default {
                     width: 16px;
                     height: 1px;
                     background: #2b3655;
-                    transform: rotate(0);
+                    transform: translateY(-1px) rotate(0);
                     transition: 0.15s;
                 }
                 .bottom {
@@ -173,19 +173,15 @@ export default {
                     width: 16px;
                     height: 1px;
                     background: #2b3655;
-                    transform: rotate(0);
+                    transform: translateY(3px) rotate(0);
                     transition: 0.15s;
                 }
                 &.active {
                     .middle {
-                        width: 16px;
-                        height: 1px;
                         background: #2b3655;
                         transform: rotate(45deg);
                     }
                     .bottom {
-                        width: 16px;
-                        height: 1px;
                         background: #2b3655;
                         transform: rotate(-45deg);
                     }
