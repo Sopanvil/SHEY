@@ -240,7 +240,7 @@ export default {
                 font-weight: 700;
                 font-size: 38px;
                 line-height: 44px;
-                color: #3c77ff;
+                color: #2b3655;
             }
         }
         &.active {

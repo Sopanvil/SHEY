@@ -96,6 +96,33 @@
                         <p class="work">CEO, Head of UX/UI design</p>
                     </div>
                 </div>
+                <div class="experience-slider">
+                    <client-only>
+                        <Slider :options="options">
+                            <SliderItem>
+                                <div class="item">
+                                    <img class="image" src="../static/img/person-1.png" />
+                                    <p class="name">Name Surname</p>
+                                    <p class="work">CEO, Head of UX/UI design</p>
+                                </div>
+                            </SliderItem>
+                            <SliderItem>
+                                <div class="item">
+                                    <img class="image" src="../static/img/person-2.png" />
+                                    <p class="name">Name Surname</p>
+                                    <p class="work">CEO, Head of UX/UI design</p>
+                                </div>
+                            </SliderItem>
+                            <SliderItem>
+                                <div class="item">
+                                    <img class="image" src="../static/img/person-3.png" />
+                                    <p class="name">Name Surname</p>
+                                    <p class="work">CEO, Head of UX/UI design</p>
+                                </div>
+                            </SliderItem>
+                        </Slider>
+                    </client-only>
+                </div>
                 <div class="ellipse-yellow-about">
                     <svg width="240" height="206" viewBox="0 0 240 206" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -110,7 +137,17 @@
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            options: {
+                pagination: true,
+                slidesToScroll: 1,
+                loop: false,
+            },
+        };
+    },
+};
 </script>
 <style lang="scss" scoped>
 .about {
@@ -127,8 +164,8 @@ export default {};
             justify-content: center;
             flex-direction: column;
             position: relative;
+            padding: 0 16px;
             .title {
-                max-width: 857px;
                 margin-bottom: 32px;
                 font-weight: 700;
                 font-size: 82px;
@@ -137,7 +174,7 @@ export default {};
             }
             .text {
                 max-width: 789px;
-                margin-bottom: 32px;
+                margin-bottom: 100px;
                 font-weight: 500;
                 font-size: 24px;
                 color: #2b3655;
@@ -145,7 +182,7 @@ export default {};
             .experience {
                 display: flex;
                 justify-content: space-between;
-                align-items: center;
+                align-items: flex-start;
                 .item {
                     max-width: 123px;
                     .number {
@@ -160,12 +197,6 @@ export default {};
                         color: #2b3655;
                     }
                 }
-            }
-            .ellipse-red-main {
-                position: absolute;
-                top: -100px;
-                right: 200px;
-                z-index: -1;
             }
         }
     }
@@ -182,6 +213,7 @@ export default {};
             justify-content: center;
             flex-direction: column;
             position: relative;
+            padding: 0 16px;
             .title {
                 max-width: 857px;
                 margin-bottom: 32px;
@@ -228,6 +260,7 @@ export default {};
             justify-content: center;
             flex-direction: column;
             position: relative;
+            padding: 0 16px;
             .title {
                 max-width: 857px;
                 margin-bottom: 32px;
@@ -269,11 +302,153 @@ export default {};
                     }
                 }
             }
+            .experience-slider {
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                .item {
+                    .image {
+                        max-width: 248px;
+                        margin-bottom: 24px;
+                    }
+                    .name {
+                        margin-bottom: 12px;
+                        font-weight: 400;
+                        font-size: 32px;
+                        line-height: 37px;
+                        text-align: center;
+                        color: #000000;
+                    }
+                    .work {
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 21px;
+                        text-align: center;
+                        color: #000000;
+                    }
+                }
+            }
             .ellipse-yellow-about {
                 position: absolute;
                 bottom: -300px;
                 left: 250px;
                 z-index: -1;
+            }
+        }
+    }
+}
+
+@media (max-width: 960px) {
+    .about {
+        .team {
+            .container {
+                .experience {
+                    .item {
+                        .image {
+                            max-width: 230px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .about {
+        .main {
+            padding: 160px 0;
+            .container {
+                .title {
+                    margin-bottom: 30px;
+                    font-size: 38px;
+                    line-height: 46px;
+                }
+                .text {
+                    margin-bottom: 60px;
+                    font-size: 18px;
+                    line-height: 21px;
+                }
+                .experience {
+                    flex-wrap: wrap;
+                    padding: 0 32px;
+                    gap: 27px;
+                    .item {
+                        width: 92px;
+                        .number {
+                            font-size: 57px;
+                            line-height: 68px;
+                        }
+                        .name {
+                            font-size: 16px;
+                            line-height: 19px;
+                        }
+                    }
+                }
+                .ellipse-red-main {
+                    top: -150px;
+                    right: -100px;
+                }
+            }
+        }
+        .clients {
+            margin-bottom: 160px;
+            .container {
+                .title {
+                    margin-bottom: 30px;
+                    font-size: 38px;
+                    line-height: 46px;
+                }
+                .text {
+                    margin-bottom: 60px;
+                    font-size: 18px;
+                    line-height: 21px;
+                }
+                .companys {
+                    gap: 30px 21px;
+                    .logo {
+                        width: 81px;
+                    }
+                }
+                .ellipse-blue-about {
+                    top: -230px;
+                    right: -100px;
+                    svg {
+                        width: 244px;
+                        height: 278px;
+                        transform: rotate(10deg);
+                    }
+                }
+            }
+        }
+        .team {
+            .container {
+                padding: 0;
+                .title {
+                    padding: 0 16px;
+                    margin-bottom: 30px;
+                    font-size: 38px;
+                    line-height: 46px;
+                }
+                .text {
+                    padding: 0 16px;
+                    margin-bottom: 40px;
+                    font-size: 18px;
+                    line-height: 21px;
+                }
+                .experience {
+                    display: none;
+                }
+                .experience-slider {
+                    display: flex;
+                    .slider-container {
+                        overflow: visible;
+                        &.slider-pagination {
+                            background: #000;
+                            bottom: -60px;
+                        }
+                    }
+                }
             }
         }
     }

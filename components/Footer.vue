@@ -48,7 +48,7 @@
 </template>
 <script>
 export default {
-    layout: 'test'
+    layout: 'test',
 };
 </script>
 <style lang="scss" scoped>
@@ -95,6 +95,9 @@ export default {
                         font-size: 24px;
                         line-height: 28px;
                         color: #272727;
+                        text-decoration-line: underline;
+                        text-decoration-thickness: 1px;
+                        text-underline-offset: 5px;
                     }
                 }
             }
@@ -122,6 +125,7 @@ export default {
         .container {
             .footer-table {
                 .footer-list {
+                    width: 130px;
                     .title {
                         font-size: 18px;
                         line-height: 22px;

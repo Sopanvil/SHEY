@@ -38,6 +38,15 @@
                     />
                 </svg>
             </div>
+            <div class="ellipse-green-work">
+                <svg width="790" height="714" viewBox="0 0 790 714" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        opacity="0.4"
+                        d="M790 194.886C790 391.775 550.389 714 354.567 714C158.745 714 0 554.39 0 357.5C0 160.61 158.745 1 354.567 1C550.389 1 790 -2.00355 790 194.886Z"
+                        fill="#60C98B"
+                    />
+                </svg>
+            </div>
         </div>
     </div>
 </template>
@@ -46,25 +55,28 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .work {
-    padding: 300px 0 260px 0;
-    overflow: hidden;
     display: flex;
     justify-content: center;
+    padding: 300px 0 260px 0;
     .container {
         width: 100%;
         max-width: 1080px;
-        padding: 0 20px;
+        padding: 0 16px;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         position: relative;
         .part-text {
-            max-width: 923px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 260px;
-            text-align: center;
             .title {
-                margin-bottom: 32px;
+                max-width: 923px;
+                margin-bottom: 44px;
+                text-align: center;
                 font-weight: 700;
                 font-size: 82px;
                 line-height: 99px;
@@ -82,13 +94,15 @@ export default {};
             .part-item {
                 width: 100%;
                 max-width: 532px;
-                height: 618px;
+                height: 450px;
                 display: flex;
                 justify-content: flex-start;
                 align-items: flex-end;
                 padding: 28px;
                 box-sizing: border-box;
-                background-size: contain;
+                background-size: cover;
+                background-position: center;
+                border-radius: 16px;
                 .title {
                     font-weight: 700;
                     font-size: 72px;
@@ -102,6 +116,59 @@ export default {};
             top: 100px;
             right: -550px;
             z-index: -1;
+        }
+        .ellipse-green-work {
+            position: absolute;
+            top: 1760px;
+            left: -600px;
+            z-index: -1;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .work {
+        padding: 160px 0 160px 0;
+        .container {
+            margin-bottom: 0;
+            .part-text {
+                width: 100%;
+                margin-bottom: 160px;
+                .title {
+                    max-width: 276px;
+                    margin-bottom: 30px;
+                    font-size: 38px;
+                    line-height: 44px;
+                }
+            }
+            .part-group {
+                .part-item {
+                    height: 334px;
+                    padding: 16px;
+                    border-radius: 8px;
+                    background-position: center;
+                    background-size: cover;
+                    .title {
+                        font-size: 38px;
+                        line-height: 46px;
+                    }
+                }
+            }
+            .ellipse-red-work {
+                top: -100;
+                right: 0;
+                left: 200px;
+                svg {
+                    width: 300px;
+                    height: 240px;
+                    path {
+                        fill: #ffe4b1;
+                    }
+                }
+            }
+            .ellipse-green-work {
+                display: none;
+            }
         }
     }
 }

@@ -114,7 +114,7 @@ export default {
                 padding: 21px 41px;
                 font-weight: 400;
                 font-size: 24px;
-                color: #3c77ff;
+                color: #FFFFFF;
                 border: 2px solid #3c77ff;
                 border-radius: 16px;
             }

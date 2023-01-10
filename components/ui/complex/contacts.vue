@@ -27,20 +27,37 @@
 export default {};
 </script>
 <style lang="scss" scoped>
-        .hire-inputs {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 30px;
-            .input-container {
-                width: 100%;
-                .input-label {
-                    margin-bottom: 10px;
-                    font-weight: 300;
-                    font-size: 20px;
-                    line-height: 23px;
-                    color: #2b365599;
-                }
+.hire-inputs {
+    width: 100%;
+    max-width: 541px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    .input-container {
+        width: 100%;
+        .input-label {
+            margin-bottom: 10px;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 23px;
+            opacity: 0.6;
+            color: #2b365599;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .hire-inputs {
+        max-width: none;
+        gap: 20px;
+        .input-container {
+            .input-label {
+                margin-bottom: 5px;
+                font-size: 14px;
+                line-height: 16px;
             }
-        }</style>
+        }
+    }
+}
+</style>

@@ -14,7 +14,7 @@
                     <img class="image" src="../../static/img/apple-2.png" alt="" />
                     <img class="image" src="../../static/img/apple-3.png" alt="" />
                 </div>
-                <p class="text-plus">Description</p>
+                <p class="text-plus">We had a lot of fun working on this project.</p>
                 <div class="group-images-plus">
                     <img class="image" src="../../static/img/apple-4.png" alt="" />
                 </div>
@@ -90,6 +90,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             position: relative;
+            padding: 0 16px;
             .title {
                 max-width: 508px;
                 margin-bottom: 32px;
@@ -111,6 +112,7 @@ export default {
                 gap: 60px;
                 .image {
                     width: 100%;
+                    border-radius: 16px;
                 }
             }
             .text-plus {
@@ -126,11 +128,10 @@ export default {
                 gap: 60px;
                 .image {
                     width: 100%;
+                    border-radius: 16px;
                 }
             }
             .ellipse {
-                max-width: 790px;
-                max-height: 713px;
                 position: absolute;
                 right: -500px;
                 top: -200px;
@@ -138,19 +139,22 @@ export default {
             }
         }
     }
+
     .hireus {
         display: flex;
         justify-content: center;
-        padding-bottom: 260px;
+        position: relative;
+        margin-bottom: 260px;
         .container {
             width: 100%;
             max-width: 1080px;
             display: flex;
+            justify-content: space-between;
             align-items: flex-start;
-            position: relative;
-            gap: 120px;
+            padding: 0 16px;
+            gap: 60px;
             .hire-text {
-                max-width: 390px;
+                min-width: 400px;
                 .title {
                     margin-bottom: 35px;
                     font-weight: 700;
@@ -165,13 +169,107 @@ export default {
                     color: #2b3655;
                 }
             }
-            .ellipse {
-                max-width: 790px;
-                max-height: 713px;
-                position: absolute;
-                left: -600px;
-                top: 450px;
-                z-index: -1;
+        }
+        .ellipse {
+            position: absolute;
+            left: -300px;
+            top: 45%;
+            z-index: -1;
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .product {
+        .main {
+            height: 495px;
+            margin-bottom: 100px;
+            .container {
+                .title {
+                    margin-top: 130px;
+                    font-size: 38px;
+                    line-height: 44px;
+                }
+            }
+        }
+        .description {
+            margin-bottom: 160px;
+            .container {
+                .title {
+                    max-width: 237px;
+                    margin-bottom: 30px;
+                    font-size: 38px;
+                    line-height: 44px;
+                }
+                .text {
+                    font-size: 18px;
+                    line-height: 28px;
+                }
+                .group-images {
+                    gap: 16px;
+                    .image {
+                        height: 334px;
+                        object-fit: cover;
+                    }
+                }
+                .text-plus {
+                    margin: 48px 0px;
+                    font-size: 18px;
+                    line-height: 21px;
+                }
+                .group-images-plus {
+                    gap: 16px;
+                    .image {
+                        height: 334px;
+                        object-fit: cover;
+                    }
+                }
+                .ellipse {
+                    right: -250px;
+                    top: 0px;
+                    svg {
+                        width: 366px;
+                        height: 444px;
+                        path {
+                            fill: #e84747;
+                            opacity: 0.4;
+                        }
+                    }
+                }
+            }
+        }
+        .hireus {
+            margin-bottom: 160px;
+            .container {
+                padding: 0 16px;
+                flex-direction: column;
+                gap: 30px;
+                .hire-text {
+                    max-width: 206px;
+                    min-width: 0;
+                    .title {
+                        margin-bottom: 30px;
+                        font-size: 38px;
+                        line-height: 44px;
+                    }
+                    .text {
+                        font-size: 18px;
+                        line-height: 28px;
+                    }
+                }
+                .ellipse {
+                    left: -230px;
+                    top: -410px;
+                    transform: rotate(-96deg);
+                    svg {
+                        width: 366px;
+                        height: 444px;
+                        path {
+                            fill: #ffe4b1;
+                            opacity: 0.6;
+                        }
+                    }
+                }
             }
         }
     }

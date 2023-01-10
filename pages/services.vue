@@ -23,6 +23,15 @@
                         <p class="text">Development of the UX for Tesla CarOS</p>
                     </div>
                 </div>
+                <div class="ellipse">
+                    <svg width="692" height="818" viewBox="0 0 692 818" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            opacity="0.4"
+                            d="M604.362 68.3917C723.46 225.176 727.567 626.705 571.633 745.156C415.699 863.608 192.742 832.533 73.6446 675.748C-45.4526 518.964 -15.5904 295.841 140.344 177.39C296.278 58.9384 485.265 -88.3926 604.362 68.3917Z"
+                            fill="#FFE4B1"
+                        />
+                    </svg>
+                </div>
             </section>
             <section class="process">
                 <div class="process-text">
@@ -48,7 +57,7 @@
                 </div>
             </section>
             <section class="contact">
-                <div class="container">
+                <div class="block">
                     <div class="contact-text">
                         <p class="title">Let’s talk about you</p>
                         <p class="text">Share your ideas with us.</p>
@@ -76,11 +85,11 @@ export default {};
     padding-top: 300px;
     display: flex;
     justify-content: center;
-    overflow: hidden;
     .container {
         width: 100%;
         max-width: 1080px;
-        padding: 0 20px;
+        position: relative;
+        padding: 0 16px;
         .brand {
             margin-bottom: 260px;
             &-text {
@@ -89,7 +98,7 @@ export default {};
                 .title {
                     margin-bottom: 32px;
                     font-weight: 700;
-                    font-size: 102px;
+                    font-size: 82px;
                     line-height: 123px;
                     color: #2b3655;
                 }
@@ -127,6 +136,18 @@ export default {};
                     }
                 }
             }
+            .ellipse {
+                display: none;
+                position: absolute;
+                right: -210px;
+                top: -130px;
+                transform: rotate(-18deg);
+                z-index: -1;
+                svg {
+                    width: 380px;
+                    height: 240px;
+                }
+            }
         }
         .process {
             max-width: 759px;
@@ -136,7 +157,7 @@ export default {};
                 .title {
                     margin-bottom: 32px;
                     font-weight: 700;
-                    font-size: 102px;
+                    font-size: 82px;
                     line-height: 123px;
                     color: #2b3655;
                 }
@@ -160,14 +181,15 @@ export default {};
             justify-content: center;
             position: relative;
             padding: 300px 0 260px 0;
-            .container {
+            .block {
                 width: 100%;
                 max-width: 1080px;
                 display: flex;
+                justify-content: space-between;
                 align-items: flex-start;
-                gap: 110px;
+                gap: 60px;
                 .contact-text {
-                    max-width: 400px;
+                    min-width: 400px;
                     .title {
                         margin-bottom: 35px;
                         font-weight: 700;
@@ -184,12 +206,103 @@ export default {};
                 }
             }
             .ellipse {
-                max-width: 790px;
-                max-height: 713px;
                 position: absolute;
                 left: -600px;
                 top: 47%;
                 z-index: -1;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .services {
+        padding-top: 160px;
+        .container {
+            padding: 0;
+            .brand {
+                padding: 0 16px;
+                margin-bottom: 160px;
+                &-text {
+                    margin-bottom: 40px;
+                    .title {
+                        margin-bottom: 30px;
+                        font-size: 38px;
+                        line-height: 46px;
+                    }
+                    .text {
+                        font-size: 18px;
+                        line-height: 21px;
+                    }
+                }
+                &-group {
+                    flex-direction: column;
+                    gap: 40px;
+                    .brand-item {
+                        max-width: initial;
+                        margin-bottom: 8px;
+                    }
+                    .title {
+                        margin-bottom: 8px;
+                    }
+                    .text {
+                        font-size: 18px;
+                        line-height: 21px;
+                    }
+                }
+                .ellipse {
+                    display: flex;
+                }
+            }
+            .process {
+                padding: 0 16px;
+                &-text {
+                    margin-bottom: 30px;
+                    .title {
+                        margin-bottom: 30px;
+                        font-size: 38px;
+                        line-height: 46px;
+                    }
+                    .text {
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 21px;
+                    }
+                }
+                .form-button {
+                    width: 100%;
+                }
+            }
+            .contact {
+                padding: 160px 0;
+                .block {
+                    padding: 0 16px;
+                    flex-direction: column;
+                    gap: 30px;
+                    .contact-text {
+                        max-width: 206px;
+                        min-width: 0;
+                        .title {
+                            margin-bottom: 30px;
+                            font-size: 38px;
+                            line-height: 44px;
+                        }
+                        .text {
+                            font-size: 18px;
+                            line-height: 28px;
+                        }
+                    }
+                }
+                .ellipse {
+                    left: initial;
+                    right: -140px;
+                    top: -10px;
+                    z-index: -1;
+                    svg {
+                        width: 219px;
+                        height: 226px;
+                    }
+                }
             }
         }
     }

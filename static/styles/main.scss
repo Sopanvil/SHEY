@@ -104,6 +104,7 @@ textarea {
 
 // Buttons
 .form-button {
+    min-width: 212px;
     padding: 21px 41px;
     font-weight: 400;
     font-size: 24px;
@@ -117,6 +118,7 @@ textarea {
     }
 }
 .check-button {
+    min-width: 212px;
     padding: 21px 41px;
     font-weight: 400;
     font-size: 24px;
@@ -162,10 +164,22 @@ textarea {
 }
 
 @media (max-width: 700px) {
-    .check-button {
-        padding: 11px 0;
+    .input-standart {
+        padding: 6px;
+    }
+    .form-button {
+        width: 100%;
+        padding: 20px 0;
         font-weight: 400;
         font-size: 18px;
         line-height: 21px;
+        border-radius: 9px;
+    }
+    .check-button {
+        padding: 20px 0;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 21px;
+        border-radius: 9px;
     }
 }

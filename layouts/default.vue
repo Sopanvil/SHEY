@@ -34,6 +34,7 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .main-content {
+    overflow: hidden;
     .ellipse-1 {
         width: 51px;
         height: 46px;
