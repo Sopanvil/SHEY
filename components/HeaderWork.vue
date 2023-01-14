@@ -1,10 +1,23 @@
 <template>
     <div class="headers">
-        <div class="header">
+        <div class="header" :class="{ changed: isHeaderColorChanged }">
             <div class="container">
                 <nuxt-link to="/" class="header__title-link">SHEY</nuxt-link>
                 <div class="header-links">
-                    <nuxt-link to="/services" class="header__link" active="active">Services</nuxt-link>
+                    <div class="header__link-list">
+                        <div class="header__link">Services</div>
+                        <div class="links-group">
+                            <div class="header__link-group">UX/UI</div>
+                            <div class="header__link-group">Web</div>
+                            <div class="header__link-group">App</div>
+                            <div class="header__link-group">System</div>
+                            <div class="header__link-group">Graphic</div>
+                            <div class="header__link-group">Covers</div>
+                            <nuxt-link to="/services/branding" class="header__link-group"> Branding </nuxt-link>
+                            <div class="header__link-group">Printing</div>
+                            <div class="header__link-group">NFT</div>
+                        </div>
+                    </div>
                     <nuxt-link to="/work" class="header__link" active="active">Work</nuxt-link>
                     <nuxt-link to="/about" class="header__link" active="active">About</nuxt-link>
                     <nuxt-link to="/hire-us" class="header__hire" active="active">Hire us</nuxt-link>
@@ -59,17 +72,33 @@ export default {
     data() {
         return {
             isActive: false,
+            isHeaderColorChanged: false,
         };
     },
+
     watch: {
         $route() {
             this.isActive = false;
         },
     },
     methods: {
+        handleScroll() {
+            console.log(window.scrollY);
+            if (window.scrollY >= 1000) {
+                this.isHeaderColorChanged = true;
+            } else {
+                this.isHeaderColorChanged = false;
+            }
+        },
         toggleHeader() {
             this.isActive = !this.isActive;
         },
+    },
+    mounted() {
+        window.addEventListener('scroll', this.handleScroll);
+    },
+    beforeDestroy() {
+        window.removeEventListener('scroll', this.handleScroll);
     },
 };
 </script>
@@ -84,6 +113,7 @@ export default {
     background: linear-gradient(108.46deg, rgba(70, 70, 70, 0.264) 0%, rgba(255, 255, 255, 0.066) 100%);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #242424;
+    transition: 0.3s;
     .container {
         position: relative;
         width: 100%;
@@ -95,32 +125,83 @@ export default {
         .header__title-link {
             font-weight: 700;
             font-size: 40px;
-            color: #FFFFFF;
+            color: #ffffff;
+            transition: 0.3s;
         }
         .header-links {
             display: flex;
             align-items: center;
             gap: 36px;
+            .header__link-list {
+                position: relative;
+                .links-group {
+                    visibility: hidden;
+                    opacity: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    position: absolute;
+                    top: 40px;
+                    left: -60px;
+                    padding: 36px 60px;
+                    background: #3c77ff;
+                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+                    border-radius: 10px;
+                    transition: 0.15s;
+                    .header__link-group {
+                        font-weight: 400;
+                        font-size: 24px;
+                        line-height: 28px;
+                        color: #ffffff;
+                    }
+                }
+                &:hover {
+                    .links-group {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
             .header__link {
+                position: relative;
                 font-weight: 400;
                 font-size: 24px;
-                color: #FFFFFF;
-                transition: 0.15s;
+                color: #ffffff;
+                transition: 0.3s;
                 &.nuxt-link-active {
-                    color: #48A7FF;
+                    color: #48a7ff;
                 }
             }
             .header__hire {
                 padding: 21px 41px;
                 font-weight: 400;
                 font-size: 24px;
-                color: #FFFFFF;
+                color: #3c77ff;
                 border: 2px solid #3c77ff;
                 border-radius: 16px;
             }
         }
     }
+    &.changed {
+        border-bottom: 1px solid #E4E7EB;
+        transition: 0.3s;
+
+        .container {
+            .header__title-link {
+                color: #000000;
+            }
+            .header-links {
+                .header__link {
+                    color: #2b3655;
+                    &.nuxt-link-active {
+                        color: #3c77ff;
+                    }
+                }
+            }
+        }
+    }
 }
+
 // Мейби переделаю в будущем
 
 .header-mobile {
@@ -156,7 +237,7 @@ export default {
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 16px;
-                color: #FFFFFF;
+                color: #ffffff;
             }
             .burger {
                 width: 16px;
@@ -164,7 +245,7 @@ export default {
                     position: absolute;
                     width: 16px;
                     height: 1px;
-                    background: #FFFFFF;
+                    background: #ffffff;
                     transform: translateY(-1px) rotate(0);
                     transition: 0.15s;
                 }
@@ -172,7 +253,7 @@ export default {
                     position: absolute;
                     width: 16px;
                     height: 1px;
-                    background: #FFFFFF;
+                    background: #ffffff;
                     transform: translateY(3px) rotate(0);
                     transition: 0.15s;
                 }

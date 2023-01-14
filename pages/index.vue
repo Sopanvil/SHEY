@@ -5,7 +5,13 @@
                 <img class="ipad" src="../static/img/ipad.png" />
                 <div class="text">
                     <p class="title">An Exceptional Design Agency</p>
-                    <button class="form-button">Get Started</button>
+                    <button
+                        class="form-button"
+                        :class="{ disabled: disableScroll }"
+                        @click="!disableScroll && scrollToBottom()"
+                    >
+                        Get Started
+                    </button>
                 </div>
                 <div class="ellipse-green-main-big">
                     <svg width="788" height="635" viewBox="0 0 788 635" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="who">
+        <div class="who" ref="whos">
             <div class="container">
                 <p class="title">Who are we?</p>
                 <p class="text">
@@ -103,9 +109,13 @@
             <div class="container">
                 <p class="title">We want you to become a part of this list</p>
                 <div class="part-group">
-                    <div class="part-item" :style="{ backgroundImage: `url(${require('../static/img/slack.png')})` }">
-                        <p class="name">Slack</p>
-                    </div>
+                    <nuxt-link
+                        to="/work/apple"
+                        class="part-item"
+                        :style="{ backgroundImage: `url(${require('../static/img/slack.png')})` }"
+                    >
+                        <p class="name">Apple</p>
+                    </nuxt-link>
                     <div class="part-item" :style="{ backgroundImage: `url(${require('../static/img/sony.png')})` }">
                         <p class="name">Sony</p>
                     </div>
@@ -113,7 +123,7 @@
                         class="part-item"
                         :style="{ backgroundImage: `url(${require('../static/img/apple_next.png')})` }"
                     >
-                        <p class="name">Apple</p>
+                        <p class="name">Slack</p>
                     </div>
                     <div class="part-item" :style="{ backgroundImage: `url(${require('../static/img/coce.png')})` }">
                         <p class="name">Coca-Cola</p>
@@ -153,7 +163,29 @@
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            disableScroll: false,
+        };
+    },
+    methods: {
+        scrollToBottom() {
+            if (this.disableScroll == false) {
+                let element = this.$refs['whos'];
+                element.scrollIntoView({
+                    block: 'center',
+                    inline: 'center',
+                    behavior: 'smooth',
+                });
+            }
+            this.disableScroll = true;
+            setTimeout(() => {
+                this.disableScroll = false;
+            }, 1500);
+        },
+    },
+};
 </script>
 <style lang="scss" scoped>
 .main {
@@ -164,7 +196,7 @@ export default {};
         display: flex;
         justify-content: center;
         position: relative;
-        margin: 300px 0 170px 0;
+        margin: 240px 0 170px 0;
         .container {
             width: 100%;
             max-width: 1080px;
@@ -426,6 +458,10 @@ export default {};
                     filter: drop-shadow(86px 207px 89px rgba(0, 0, 0, 0.01))
                         drop-shadow(48px 116px 75px rgba(0, 0, 0, 0.05)) drop-shadow(21px 52px 56px rgba(0, 0, 0, 0.09))
                         drop-shadow(5px 13px 31px rgba(0, 0, 0, 0.1)) drop-shadow(0px 0px 0px rgba(0, 0, 0, 0.1));
+                    -webkit-backface-visibility: hidden;
+                    -moz-backface-visibility: hidden;
+                    -webkit-transform: translate3d(0, 0, 0);
+                    -moz-transform: translate3d(0, 0, 0);
                 }
             }
         }

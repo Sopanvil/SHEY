@@ -11,13 +11,13 @@
                     class="part-item"
                     :style="{ backgroundImage: `url(${require('@/static/img/slack.png')})` }"
                 >
-                    <p class="title">Slack</p>
+                    <p class="title">Apple</p>
                 </nuxt-link>
                 <div class="part-item" :style="{ backgroundImage: `url(${require('@/static/img/sony.png')})` }">
                     <p class="title">Sony</p>
                 </div>
                 <div class="part-item" :style="{ backgroundImage: `url(${require('@/static/img/apple_next.png')})` }">
-                    <p class="title">Apple</p>
+                    <p class="title">Slack</p>
                 </div>
                 <div class="part-item" :style="{ backgroundImage: `url(${require('@/static/img/coce.png')})` }">
                     <p class="title">Coca-Cola</p>

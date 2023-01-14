@@ -8,17 +8,17 @@
                 </div>
                 <div class="brand-group">
                     <div class="brand-item">
-                        <img src="../static/img/coca.png" class="image" />
+                        <img src="@/static/img/coca.png" class="image" />
                         <p class="title">Coca-Cola</p>
                         <p class="text">Official Coca-Cola rebrand</p>
                     </div>
                     <div class="brand-item">
-                        <img src="../static/img/apple.png" class="image" />
+                        <img src="@/static/img/apple.png" class="image" />
                         <p class="title">Apple</p>
                         <p class="text">Designing the new merch for Apple Store employees</p>
                     </div>
                     <div class="brand-item">
-                        <img src="../static/img/tesla.png" class="image" />
+                        <img src="@/static/img/tesla.png" class="image" />
                         <p class="title">Tesla</p>
                         <p class="text">Development of the UX for Tesla CarOS</p>
                     </div>

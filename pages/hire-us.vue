@@ -33,6 +33,7 @@ export default {};
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        position: relative;
         padding: 0 16px;
         gap: 60px;
         .hire-text {
@@ -53,7 +54,7 @@ export default {};
         }
         .ellipse {
             position: absolute;
-            left: -300px;
+            left: -600px;
             top: 50%;
             z-index: -1;
         }

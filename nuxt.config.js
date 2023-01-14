@@ -18,7 +18,7 @@ export default {
     css: ['@/static/styles/main.scss', '@/static/styles/fonts/font.scss'],
 
     // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-    plugins: [{ src: './plugins/vue-concise-slider.js', mode: 'client' }],
+    plugins: [{ src: './plugins/vue-concise-slider.js', mode: 'client' }, './plugins/vuelidate.js'],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
     components: true,
@@ -27,10 +27,27 @@ export default {
     buildModules: [],
 
     // Modules: https://go.nuxtjs.dev/config-modules
-    modules: [],
+    modules: [
+        '@nuxtjs/axios',
+        [
+            'nuxt-mail',
+            {
+                message: {
+                    to: 'from_website@shey.agency',
+                },
+                smtp: {
+                    host: 'smtp.mail.ru',
+                    port: 465,
+                    auth: {
+                        user: 'from_website@shey.agency',
+                        pass: 'PfkYcuUri0YzsPwDwg9z',
+                    },
+                },
+            },
+        ],
+    ],
 
     // Build Configuration: https://go.nuxtjs.dev/config-build
 
-    builds: [
-    ],
+    builds: [],
 };

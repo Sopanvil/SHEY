@@ -4,10 +4,23 @@
             <div class="container">
                 <nuxt-link to="/" class="header__title-link">SHEY</nuxt-link>
                 <div class="header-links">
-                    <nuxt-link to="/services" class="header__link" active="active">Services</nuxt-link>
-                    <nuxt-link to="/work" class="header__link" active="active">Work</nuxt-link>
-                    <nuxt-link to="/about" class="header__link" active="active">About</nuxt-link>
-                    <nuxt-link to="/hire-us" class="header__hire" active="active">Hire us</nuxt-link>
+                    <div class="header__link-list">
+                        <div class="header__link" :class="{ 'nuxt-link-active': subRouteServices }">Services</div>
+                        <div class="links-group">
+                            <div class="header__link-group">UX/UI</div>
+                            <div class="header__link-group">Web</div>
+                            <div class="header__link-group">App</div>
+                            <div class="header__link-group">System</div>
+                            <div class="header__link-group">Graphic</div>
+                            <div class="header__link-group">Covers</div>
+                            <nuxt-link to="/services/branding" class="header__link-group"> Branding </nuxt-link>
+                            <div class="header__link-group">Printing</div>
+                            <div class="header__link-group">NFT</div>
+                        </div>
+                    </div>
+                    <nuxt-link to="/work" class="header__link">Work</nuxt-link>
+                    <nuxt-link to="/about" class="header__link">About</nuxt-link>
+                    <nuxt-link to="/hire-us" class="header__hire">Hire us</nuxt-link>
                 </div>
             </div>
         </div>
@@ -61,6 +74,11 @@ export default {
             isActive: false,
         };
     },
+    computed: {
+        subRouteServices() {
+            return this.$route.path.startsWith('/services');
+        },
+    },
     watch: {
         $route() {
             this.isActive = false;
@@ -101,7 +119,38 @@ export default {
             display: flex;
             align-items: center;
             gap: 36px;
+            .header__link-list {
+                position: relative;
+                .links-group {
+                    visibility: hidden;
+                    opacity: 0;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    position: absolute;
+                    top: 40px;
+                    left: -60px;
+                    padding: 36px 60px;
+                    background: #3c77ff;
+                    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+                    border-radius: 10px;
+                    transition: 0.15s;
+                    .header__link-group {
+                        font-weight: 400;
+                        font-size: 24px;
+                        line-height: 28px;
+                        color: #ffffff;
+                    }
+                }
+                &:hover {
+                    .links-group {
+                        visibility: visible;
+                        opacity: 1;
+                    }
+                }
+            }
             .header__link {
+                position: relative;
                 font-weight: 400;
                 font-size: 24px;
                 color: #2b3655;

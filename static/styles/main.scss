@@ -61,6 +61,7 @@ input[type='number']::-webkit-inner-spin-button {
         background: #f5f5f5;
     }
     &:focus {
+        border: 1px solid #3c77ff;
         background: #ffffff;
     }
 }
@@ -79,6 +80,7 @@ input[type='number']::-webkit-inner-spin-button {
         background: #f5f5f5;
     }
     &:focus {
+        border: 1px solid #3c77ff;
         background: #ffffff;
     }
 }
@@ -89,11 +91,18 @@ input[type='number']::-webkit-inner-spin-button {
 }
 .text-error {
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
+    left: -20px;
     font-weight: 400;
-    font-size: 10px;
+    opacity: 0;
+    font-size: 12px;
     line-height: 120%;
     color: #e84747;
+    transition: 0.15s;
+    &__active {
+        opacity: 1;
+        left: 0;
+    }
 }
 
 // Textarea
@@ -112,9 +121,14 @@ textarea {
     background: #3c77ff;
     border-radius: 16px;
     transition: 0.15s;
+    user-select: none;
     cursor: pointer;
     &:hover {
         background: #296aff;
+    }
+    &.disabled {
+        cursor: default;
+        background: #3c77ff33;
     }
 }
 .check-button {

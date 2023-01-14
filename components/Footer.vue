@@ -32,12 +32,13 @@
                     <div class="table-content">
                         <a href="" class="footer__link">+90 531 012 16 30</a>
                         <a href="" class="footer__link">contact@shey.agency</a>
+                        <a href="" class="footer__link">partnership@shey.agency</a>
                     </div>
                 </div>
             </div>
             <div class="footer-text">
                 <div class="footer-text__title">
-                    © 2022, SHEI Agency |
+                    © 2022, SHEY Agency |
                     <span><a href="">Sitemap</a></span> | <span><a href="">Privacy Policy</a></span> |
                     <span><a href="">Terms of Use</a></span> |
                     <span><a href="">Cookie Policy</a></span>
@@ -113,6 +114,9 @@ export default {
                 color: #7b7b7b;
                 a {
                     color: #7b7b7b;
+                    text-decoration-line: underline;
+                    text-decoration-thickness: 1px;
+                    text-underline-offset: 5px;
                 }
             }
         }
