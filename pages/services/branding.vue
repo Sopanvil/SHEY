@@ -45,7 +45,7 @@
                         with our projects.
                     </p>
                 </div>
-                <button class="form-button">Go to Portfolio</button>
+                <nuxt-link to="/work" class="form-button">Go to Portfolio</nuxt-link>
                 <div class="ellipse">
                     <svg width="692" height="818" viewBox="0 0 692 818" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -58,11 +58,21 @@
             </section>
             <section class="contact">
                 <div class="block">
-                    <div class="contact-text">
-                        <p class="title">Let’s talk about you</p>
-                        <p class="text">Share your ideas with us.</p>
-                    </div>
-                    <UiComplexContacts />
+                    <client-only>
+                        <transition name="out-in-anim" mode="out-in">
+                            <div key="1" v-if="!success" class="form-block">
+                                <div class="contact-text">
+                                    <p class="title">Let’s talk about you</p>
+                                    <p class="text">Share your ideas with us.</p>
+                                </div>
+                                <UiComplexContacts @result="resultSend" />
+                            </div>
+                            <div key="2" v-else class="success">
+                                <div class="text">Thanks for your request, {{ name }}</div>
+                                <div class="text">We will contact you as soon as possible</div>
+                            </div>
+                        </transition>
+                    </client-only>
                 </div>
                 <div class="ellipse">
                     <svg width="790" height="714" viewBox="0 0 790 714" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -78,7 +88,20 @@
     </div>
 </template>
 <script>
-export default {};
+export default {
+    data() {
+        return {
+            name: '',
+            success: false,
+        };
+    },
+    methods: {
+        resultSend(name, reslt) {
+            this.name = name;
+            this.success = reslt;
+        },
+    },
+};
 </script>
 <style lang="scss" scoped>
 .services {
@@ -94,7 +117,7 @@ export default {};
             margin-bottom: 260px;
             &-text {
                 max-width: 616px;
-                margin-bottom: 71px;
+                margin-bottom: 95px;
                 .title {
                     margin-bottom: 32px;
                     font-weight: 700;
@@ -153,7 +176,7 @@ export default {};
             max-width: 759px;
             position: relative;
             &-text {
-                margin-bottom: 42px;
+                margin-bottom: 66px;
                 .title {
                     margin-bottom: 32px;
                     font-weight: 700;
@@ -168,6 +191,12 @@ export default {};
                     line-height: 28px;
                     color: #2b3655;
                 }
+            }
+            .form-button {
+                max-width: 212px;
+                padding: 21px 0;
+                display: block;
+                text-align: center;
             }
             .ellipse {
                 position: absolute;
@@ -184,23 +213,41 @@ export default {};
             .block {
                 width: 100%;
                 max-width: 1080px;
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                gap: 60px;
-                .contact-text {
-                    min-width: 400px;
-                    .title {
-                        margin-bottom: 35px;
+                .form-block {
+                    height: 805px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    position: relative;
+                    gap: 60px;
+                    .contact-text {
+                        min-width: 400px;
+                        .title {
+                            margin-bottom: 35px;
+                            font-weight: 700;
+                            font-size: 82px;
+                            line-height: 86px;
+                            color: #2b3655;
+                        }
+                        .text {
+                            font-weight: 500;
+                            font-size: 24px;
+                            line-height: 36px;
+                            color: #2b3655;
+                        }
+                    }
+                }
+                .success {
+                    height: 805px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    gap: 100px;
+                    .text {
+                        width: 764px;
                         font-weight: 700;
                         font-size: 82px;
                         line-height: 86px;
-                        color: #2b3655;
-                    }
-                    .text {
-                        font-weight: 500;
-                        font-size: 24px;
-                        line-height: 36px;
                         color: #2b3655;
                     }
                 }

@@ -3,7 +3,7 @@
         <div class="container">
             <div class="part-text">
                 <p class="title">We want you to become a part of this list</p>
-                <button class="form-button">Get Started</button>
+                <nuxt-link to="/hire-us" class="form-button">Get Started</nuxt-link>
             </div>
             <div class="part-group">
                 <nuxt-link
@@ -82,6 +82,12 @@ export default {};
                 line-height: 99px;
                 text-align: center;
                 color: #2b3655;
+            }
+            .form-button {
+                max-width: 212px;
+                padding: 21px 0;
+                display: block;
+                text-align: center;
             }
         }
         .part-group {

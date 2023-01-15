@@ -31,11 +31,21 @@
         </div>
         <div class="hireus">
             <div class="container">
-                <div class="hire-text">
-                    <p class="title">Let’s talk about you</p>
-                    <p class="text">Share your ideas with us</p>
-                </div>
-                <UiComplexContacts />
+                <client-only>
+                    <transition name="out-in-anim" mode="out-in">
+                        <div key="1" v-if="!success" class="form-block">
+                            <div class="hire-text">
+                                <p class="title">Let’s talk about you</p>
+                                <p class="text">Share your ideas with us.</p>
+                            </div>
+                            <UiComplexContacts @result="resultSend" />
+                        </div>
+                        <div key="2" v-else class="success">
+                            <div class="text">Thanks for your request, {{ name }}</div>
+                            <div class="text">We will contact you as soon as possible</div>
+                        </div>
+                    </transition>
+                </client-only>
                 <div class="ellipse">
                     <svg width="830" height="669" viewBox="0 0 830 669" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -52,6 +62,18 @@
 <script>
 export default {
     layout: 'work',
+    data() {
+        return {
+            name: '',
+            success: false,
+        };
+    },
+    methods: {
+        resultSend(name, reslt) {
+            this.name = name;
+            this.success = reslt;
+        },
+    },
 };
 </script>
 <style lang="scss" scoped>
@@ -148,24 +170,41 @@ export default {
         .container {
             width: 100%;
             max-width: 1080px;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 0 16px;
-            gap: 60px;
-            .hire-text {
-                min-width: 400px;
-                .title {
-                    margin-bottom: 35px;
+            .form-block {
+                height: 805px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                position: relative;
+                gap: 60px;
+                .hire-text {
+                    min-width: 400px;
+                    .title {
+                        margin-bottom: 35px;
+                        font-weight: 700;
+                        font-size: 82px;
+                        line-height: 86px;
+                        color: #2b3655;
+                    }
+                    .text {
+                        font-weight: 500;
+                        font-size: 24px;
+                        line-height: 36px;
+                        color: #2b3655;
+                    }
+                }
+            }
+            .success {
+                height: 805px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 100px;
+                .text {
+                    width: 764px;
                     font-weight: 700;
                     font-size: 82px;
                     line-height: 86px;
-                    color: #2b3655;
-                }
-                .text {
-                    font-weight: 500;
-                    font-size: 24px;
-                    line-height: 36px;
                     color: #2b3655;
                 }
             }

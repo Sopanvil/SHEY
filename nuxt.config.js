@@ -13,7 +13,9 @@ export default {
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     },
-
+    axios: {
+        // baseURL: process.env.BASE_URL,
+    },
     // Global CSS: https://go.nuxtjs.dev/config-css
     css: ['@/static/styles/main.scss', '@/static/styles/fonts/font.scss'],
 
@@ -33,14 +35,14 @@ export default {
             'nuxt-mail',
             {
                 message: {
-                    to: 'from_website@shey.agency',
+                    to: process.env.EMAIL,
                 },
                 smtp: {
                     host: 'smtp.mail.ru',
                     port: 465,
                     auth: {
-                        user: 'from_website@shey.agency',
-                        pass: 'PfkYcuUri0YzsPwDwg9z',
+                        user: process.env.EMAIL,
+                        pass: process.env.EMAIL_PASS,
                     },
                 },
             },
