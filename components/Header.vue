@@ -109,10 +109,10 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px;
+        padding: 14px 16px;
         .header__title-link {
             font-weight: 700;
-            font-size: 40px;
+            font-size: 36px;
             color: #000000;
         }
         .header-links {
@@ -137,8 +137,8 @@ export default {
                     transition: 0.15s;
                     .header__link-group {
                         font-weight: 400;
-                        font-size: 24px;
-                        line-height: 28px;
+                        font-size: 18px;
+                        line-height: 21px;
                         color: #ffffff;
                     }
                 }
@@ -152,7 +152,7 @@ export default {
             .header__link {
                 position: relative;
                 font-weight: 400;
-                font-size: 24px;
+                font-size: 18px;
                 color: #2b3655;
                 transition: 0.15s;
                 &.nuxt-link-active {
@@ -162,7 +162,7 @@ export default {
             .header__hire {
                 padding: 21px 41px;
                 font-weight: 400;
-                font-size: 24px;
+                font-size: 18px;
                 color: #3c77ff;
                 border: 2px solid #3c77ff;
                 border-radius: 16px;

@@ -83,7 +83,6 @@ export default {
     },
     methods: {
         handleScroll() {
-            console.log(window.scrollY);
             if (window.scrollY >= 1000) {
                 this.isHeaderColorChanged = true;
             } else {
@@ -150,8 +149,8 @@ export default {
                     transition: 0.15s;
                     .header__link-group {
                         font-weight: 400;
-                        font-size: 24px;
-                        line-height: 28px;
+                        font-size: 18px;
+                        line-height: 21px;
                         color: #ffffff;
                     }
                 }
@@ -165,7 +164,7 @@ export default {
             .header__link {
                 position: relative;
                 font-weight: 400;
-                font-size: 24px;
+                font-size: 18px;
                 color: #ffffff;
                 transition: 0.3s;
                 &.nuxt-link-active {
@@ -175,7 +174,7 @@ export default {
             .header__hire {
                 padding: 21px 41px;
                 font-weight: 400;
-                font-size: 24px;
+                font-size: 18px;
                 color: #3c77ff;
                 border: 2px solid #3c77ff;
                 border-radius: 16px;
